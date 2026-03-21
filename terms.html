@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms & Conditions — Joyride Financial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #080808; --black2: #101010; --black3: #181818;
+    --border: rgba(255,255,255,0.08); --blue: #3399cc;
+    --white: #FFFFFF; --off: #A8A8A0; --radius: 6px;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { display: flex; align-items: center; text-decoration: none; }
+  .logo img { height: 200px; width: auto; display: block; }
+  .nav-cta { background: var(--blue); color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 13px; padding: 8px 20px; border-radius: var(--radius); text-decoration: none; transition: opacity .2s; }
+  .nav-cta:hover { opacity: .85; }
+
+  .page-header { padding: 100px 5% 48px; text-align: center; border-bottom: 1px solid var(--border); }
+  .page-header h1 { font-family: 'Anton', sans-serif; font-style: italic; font-size: clamp(36px, 4vw, 60px); text-transform: uppercase; line-height: .95; margin-bottom: 14px; }
+  .page-header h1 span { color: var(--blue); }
+  .page-header p { color: var(--off); font-size: 14px; max-width: 600px; margin: 0 auto; }
+  .effective-date { display: inline-block; background: rgba(51,153,204,0.1); border: 1px solid rgba(51,153,204,0.25); color: var(--blue); font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
+
+  .toc { background: var(--black2); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; margin: 40px auto; max-width: 860px; }
+  .toc h3 { font-family: 'Anton', sans-serif; font-size: 16px; text-transform: uppercase; letter-spacing: .05em; color: var(--blue); margin-bottom: 16px; }
+  .toc ol { padding-left: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 32px; }
+  .toc li { font-size: 13px; color: var(--off); }
+  .toc a { color: var(--off); text-decoration: none; transition: color .2s; }
+  .toc a:hover { color: var(--blue); }
+
+  .content { max-width: 860px; margin: 0 auto; padding: 0 5% 80px; }
+
+  .section { margin-bottom: 48px; }
+  .section h2 { font-family: 'Anton', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: .04em; color: var(--blue); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .section h2 .num { background: var(--blue); color: white; font-size: 12px; padding: 2px 8px; border-radius: 3px; font-style: normal; }
+  .section h3 { font-size: 15px; font-weight: 500; color: var(--white); margin: 20px 0 8px; }
+  .section p { color: var(--off); font-size: 14px; margin-bottom: 12px; }
+  .section ul, .section ol { padding-left: 22px; margin-bottom: 12px; }
+  .section li { color: var(--off); font-size: 14px; margin-bottom: 6px; }
+  .section strong { color: var(--white); }
+
+  .highlight-box { background: rgba(51,153,204,0.06); border: 1px solid rgba(51,153,204,0.2); border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+  .highlight-box p { margin: 0; font-size: 13px; }
+
+  .warning-box { background: rgba(244,91,26,0.06); border: 1px solid rgba(244,91,26,0.2); border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+  .warning-box p { margin: 0; font-size: 13px; color: #e8a87c; }
+
+  .entities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .entity-card { background: var(--black2); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+  .entity-card h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+  .entity-card p { font-size: 12px; color: var(--off); margin: 0; line-height: 1.5; }
+
+  footer { padding: 32px 5%; border-top: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  footer .logo img { height: 180px; }
+  .footer-info { font-size: 12px; color: var(--off); line-height: 1.8; text-align: right; }
+  .footer-phone { color: var(--blue); text-decoration: none; font-size: 12px; }
+
+  @media (max-width: 700px) {
+    .toc ol { grid-template-columns: 1fr; }
+    .entities-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 4%; }
+    .logo img { height: 120px; }
+    footer { flex-direction: column; align-items: center; text-align: center; }
+    .footer-info { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="./"><img src="joyride-logo.png" alt="Joyride Motorsports"/></a>
+  <a class="nav-cta" href="./longform">Apply Now →</a>
+</nav>
+
+<div class="page-header">
+  <div class="effective-date">Effective Date: March 21, 2025</div>
+  <h1>Terms &amp; <span>Conditions</span></h1>
+  <p>Please read these Terms and Conditions carefully before submitting any application or using any services provided by Joyride Financial Inc., Joyride Motorsports, or Joyride First Nations.</p>
+</div>
+
+<div class="content">
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ol>
+      <li><a href="#s1">Definitions & Parties</a></li>
+      <li><a href="#s2">Acceptance of Terms</a></li>
+      <li><a href="#s3">Nature of Services</a></li>
+      <li><a href="#s4">Eligibility Requirements</a></li>
+      <li><a href="#s5">Personal Information & PIPEDA</a></li>
+      <li><a href="#s6">Collection of Information</a></li>
+      <li><a href="#s7">Use of Personal Information</a></li>
+      <li><a href="#s8">Disclosure to Third Parties</a></li>
+      <li><a href="#s9">Credit Inquiries</a></li>
+      <li><a href="#s10">CASL & Electronic Communications</a></li>
+      <li><a href="#s11">No Guarantee of Financing</a></li>
+      <li><a href="#s12">Limitation of Liability</a></li>
+      <li><a href="#s13">Indemnification</a></li>
+      <li><a href="#s14">Accuracy of Information</a></li>
+      <li><a href="#s15">Intellectual Property</a></li>
+      <li><a href="#s16">Data Retention & Deletion</a></li>
+      <li><a href="#s17">Security</a></li>
+      <li><a href="#s18">Third-Party Lenders</a></li>
+      <li><a href="#s19">Governing Law & Jurisdiction</a></li>
+      <li><a href="#s20">Amendments</a></li>
+      <li><a href="#s21">Severability</a></li>
+      <li><a href="#s22">Contact & Privacy Officer</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section" id="s1">
+    <h2><span class="num">1</span> Definitions & Parties</h2>
+    <p>For the purposes of these Terms and Conditions, the following definitions apply:</p>
+    <div class="entities-grid">
+      <div class="entity-card">
+        <h4>Joyride Financial Inc.</h4>
+        <p>A licensed Canadian financing brokerage incorporated in Alberta. Registered business address: 41 Broadway Blvd #22, Sherwood Park, AB T8H 2C1.</p>
+      </div>
+      <div class="entity-card">
+        <h4>Joyride Motorsports</h4>
+        <p>A powersport vehicle dealership and retail brand operating under and affiliated with Joyride Financial Inc. in Alberta, Canada.</p>
+      </div>
+      <div class="entity-card">
+        <h4>Joyride First Nations</h4>
+        <p>A division and affiliated brand of Joyride Financial Inc. providing financing services and powersport vehicle solutions to Indigenous communities across Canada.</p>
+      </div>
+    </div>
+    <p>Collectively, Joyride Financial Inc., Joyride Motorsports, and Joyride First Nations are referred to herein as <strong>"Joyride," "we," "us,"</strong> or <strong>"our."</strong></p>
+    <p><strong>"You"</strong> or <strong>"User"</strong> refers to any individual who accesses our website, submits an application, or otherwise engages with our services.</p>
+    <p><strong>"Lender"</strong> refers to any third-party financial institution, credit union, finance company, or private lender to whom your application may be submitted.</p>
+    <p><strong>"Application"</strong> refers to any pre-approval form, full loan application, or financing inquiry submitted through our platforms.</p>
+    <p><strong>"Personal Information"</strong> has the meaning ascribed to it under the <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA) and includes any information about an identifiable individual.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="s2">
+    <h2><span class="num">2</span> Acceptance of Terms</h2>
+    <p>By accessing our website, completing any application form, or submitting any personal information, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions in their entirety, including our Privacy Policy.</p>
+    <p>If you do not agree to these Terms, you must immediately cease use of our website and services and must not submit any application or personal information.</p>
+    <div class="highlight-box">
+      <p><strong>Electronic Acceptance:</strong> Checking the consent checkbox on any application form constitutes your electronic signature and legally binding acceptance of these Terms and Conditions under the <em>Electronic Transactions Act</em> (Alberta) and applicable federal legislation.</p>
+    </div>
+    <p>These Terms apply to all Joyride brands including Joyride Financial Inc., Joyride Motorsports, and Joyride First Nations. Submitting an application through any Joyride platform constitutes acceptance of these Terms on behalf of all three entities where applicable.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="s3">
+    <h2><span class="num">3</span> Nature of Services</h2>
+    <p>Joyride Financial Inc. operates as a <strong>financing broker and lead generator</strong>. We are not a direct lender. Our role is to:</p>
+    <ul>
+      <li>Collect your personal and financial information through secure application forms</li>
+      <li>Submit your application to one or more third-party lenders on your behalf</li>
+      <li>Facilitate communication between you and potential lenders</li>
+      <li>Assist in the sale and financing of powersport vehicles through Joyride Motorsports and Joyride First Nations</li>
+    </ul>
+    <p>Joyride does not make lending decisions. All credit decisions, interest rates, loan terms, and approvals are made solely at the discretion of the third-party lender.</p>
+    <p>Joyride Motorsports operates as a vehicle retailer and may facilitate vehicle sales in connection with financing arranged through Joyride Financial Inc.</p>
+    <p>Joyride First Nations provides specialized financing brokerage services to Indigenous Peoples in Canada, operating within the applicable legal frameworks including recognition of treaty rights and applicable Indigenous financial regulations.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="s4">
+    <h2><span class="num">4</span> Eligibility Requirements</h2>
+    <p>To submit an application through any Joyride platform, you must:</p>
+    <ul>
+      <li>Be the age of majority in your province or territory of residence (18 in Alberta, British Columbia, Manitoba, Ontario, Prince Edward Island, Quebec, and Saskatchewan; 19 in all other provinces and territories)</li>
+      <li>Be a Canadian citizen, permanent resident, or have legal status permitting you to enter into binding financial contracts in Canada</li>
+      <li>Provide accurate, truthful, and complete information in all fields</li>
+      <li>Have a valid Canadian address</li>
+      <li>Not be an undischarged bankrupt unless otherwise disclosed</li>
+    </ul>
+    <p>Joyride reserves the right to refuse or cancel any application at its sole discretion if eligibility requirements are not met or if there is any indication of fraudulent activity or misrepresentation.</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="s5">
+    <h2><span class="num">5</span> Personal Information & PIPEDA Compliance</h2>
+    <p>Joyride Financial Inc. is committed to protecting your personal information in accordance with the <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA), the <em>Personal Information Protection Act</em> (PIPA) of Alberta, and all other applicable provincial and federal privacy legislation.</p>
+    <h3>Your Rights Under PIPEDA</h3>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Know why your personal information is being collected, used, or disclosed</li>
+      <li>Expect that your information will be collected, used, or disclosed only for the purposes to which you consented</li>
+      <li>Know who is responsible for protecting your personal information</li>
+      <li>Access your personal information held by Joyride</li>
+      <li>Challenge the accuracy and completeness of your information and have it corrected</li>
+      <li>Complain to the Office of the Privacy Commissioner of Canada if you believe your privacy rights have been violated</li>
+      <li>Withdraw consent at any time, subject to legal or contractual restrictions and reasonable notice</li>
+    </ul>
+    <div class="highlight-box">
+      <p>To exercise any of your privacy rights, contact our Privacy Officer at: <strong>privacy@joyridefinancial.ca</strong> or by mail at 41 Broadway Blvd #22, Sherwood Park, AB T8H 2C1.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section" id="s6">
+    <h2><span class="num">6</span> Collection of Personal Information</h2>
+    <p>When you submit an application, we collect the following categories of personal information:</p>
+    <h3>Identity Information</h3>
+    <ul>
+      <li>Full legal name, date of birth</li>
+      <li>Government-issued identification type</li>
+      <li>Social Insurance Number (SIN) — collected only when voluntarily provided and used solely for identity verification and credit application purposes</li>
+      <li>Marital status</li>
+    </ul>
+    <h3>Contact Information</h3>
+    <ul>
+      <li>Phone number, email address</li>
+      <li>Residential address, city, province, postal code</li>
+      <li>Duration and type of tenancy at current address</li>
+    </ul>
+    <h3>Financial Information</h3>
+    <ul>
+      <li>Employment status, employer name, job title, employer phone number</li>
+      <li>Monthly income (before deductions)</li>
+      <li>Additional income sources and amounts</li>
+      <li>Duration of employment (current and previous)</li>
+    </ul>
+    <h3>Supporting Documents</h3>
+    <ul>
+      <li>Pay stubs, government-issued identification images, and any other documents voluntarily uploaded</li>
+    </ul>
+    <h3>Technical Information</h3>
+    <ul>
+      <li>IP address, browser type, device type, and referring URL — collected automatically for security and fraud prevention purposes</li>
+    </ul>
+    <p>We collect only the information necessary to fulfill the purposes described herein, consistent with the principle of <strong>data minimization</strong> under PIPEDA.</p>
+    <div class="warning-box">
+      <p><strong>SIN Notice:</strong> Providing your Social Insurance Number is entirely voluntary. Your SIN may be required by certain lenders for credit bureau access. Joyride will never use your SIN for any purpose other than the financing application process and will not disclose it to any party other than authorized lenders and credit bureaus with your explicit consent.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section" id="s7">
+    <h2><span class="num">7</span> Use of Personal Information</h2>
+    <p>Your personal information is collected and used for the following purposes:</p>
+    <ul>
+      <li>To process and evaluate your financing application</li>
+      <li>To match your application with suitable third-party lenders in our network</li>
+      <li>To verify your identity and assess creditworthiness</li>
+      <li>To communicate with you regarding the status of your application</li>
+      <li>To comply with applicable laws and regulatory requirements</li>
+      <li>To detect and prevent fraudulent activity</li>
+      <li>To improve our services and application processes</li>
+      <li>To contact you about relevant financing products and powersport vehicles with your express consent under CASL</li>
+    </ul>
+    <p>We will not use your personal information for any purpose not listed above without first obtaining your express consent, except where permitted or required by law.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section" id="s8">
+    <h2><span class="num">8</span> Disclosure to Third Parties</h2>
+    <p>By submitting an application, you expressly authorize Joyride to disclose your personal and financial information to:</p>
+    <ul>
+      <li><strong>Third-party lenders</strong> within our network of 30+ Canadian financial institutions, credit unions, and private lenders, for the purpose of evaluating and fulfilling your financing application</li>
+      <li><strong>Credit bureaus</strong> (Equifax Canada and/or TransUnion Canada) as required to process your application</li>
+      <li><strong>Affiliated Joyride entities</strong> (Joyride Motorsports, Joyride First Nations) where relevant to completing your vehicle purchase and financing</li>
+      <li><strong>Legal or regulatory authorities</strong> where required by law, court order, or regulatory requirement</li>
+    </ul>
+    <p>Joyride does <strong>not</strong> sell, rent, trade, or otherwise disclose your personal information to unaffiliated third parties for marketing, advertising, or any other commercial purpose unrelated to your financing application.</p>
+    <p>All third-party lenders who receive your information are required to maintain their own privacy policies compliant with applicable Canadian privacy law. Joyride is not responsible for the privacy practices of third-party lenders once your information has been transmitted to them.</p>
+    <p>Joyride may use secure third-party service providers (including CRM platforms and data processors) to store and process application data. These providers are bound by confidentiality agreements and are prohibited from using your information for any purpose other than providing services to Joyride.</p>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section" id="s9">
+    <h2><span class="num">9</span> Credit Inquiries</h2>
+    <p>Joyride's pre-approval and rate-check process uses a <strong>soft credit inquiry only</strong>, which does not affect your credit score and is not visible to other lenders on your credit report.</p>
+    <p>A <strong>hard credit inquiry</strong> — which may temporarily affect your credit score and is visible on your credit report — will only be conducted by a third-party lender with your express consent, and only after you have been presented with a financing offer and chosen to proceed.</p>
+    <div class="highlight-box">
+      <p>Joyride Financial Inc. is not a credit bureau and does not report to credit bureaus. Any credit bureau reporting is conducted solely by the third-party lender in accordance with their own policies and applicable law.</p>
+    </div>
+    <p>You acknowledge and consent that submitting a full application authorizes Joyride and its lending partners to access your credit profile as necessary to process your application.</p>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="section" id="s10">
+    <h2><span class="num">10</span> CASL & Electronic Communications</h2>
+    <p>Joyride complies with Canada's <em>Anti-Spam Legislation</em> (CASL), S.C. 2010, c. 23. By submitting an application, you provide express consent to receive electronic commercial messages from Joyride Financial Inc., Joyride Motorsports, and Joyride First Nations, including but not limited to:</p>
+    <ul>
+      <li>Application status updates and follow-up communications</li>
+      <li>Financing offers, promotions, and new product announcements</li>
+      <li>Educational content related to powersport vehicle financing</li>
+      <li>Phone calls and text messages related to your application</li>
+    </ul>
+    <h3>Right to Unsubscribe</h3>
+    <p>You may withdraw your consent to receive commercial electronic messages at any time by:</p>
+    <ul>
+      <li>Clicking the "Unsubscribe" link in any email we send you</li>
+      <li>Replying "STOP" to any text message</li>
+      <li>Emailing <strong>privacy@joyridefinancial.ca</strong> with the subject line "Unsubscribe"</li>
+    </ul>
+    <p>Unsubscribe requests will be honored within <strong>10 business days</strong> as required by CASL. Note that transactional messages directly related to a pending or active application may still be sent after unsubscribing from commercial messages.</p>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="section" id="s11">
+    <h2><span class="num">11</span> No Guarantee of Financing</h2>
+    <div class="warning-box">
+      <p><strong>Important:</strong> Submitting an application does not guarantee approval for financing. All financing is subject to credit approval by the applicable third-party lender (OAC — On Approved Credit).</p>
+    </div>
+    <p>Joyride makes no representations, warranties, or guarantees that:</p>
+    <ul>
+      <li>Any application will result in a financing offer</li>
+      <li>Any quoted payment estimates, interest rates, or loan terms will be available to any specific applicant</li>
+      <li>Any vehicle will remain available for purchase pending application processing</li>
+      <li>A pre-approval constitutes a binding commitment to lend</li>
+    </ul>
+    <p>Payment estimates shown on our website (e.g., "from $100/month") are illustrative examples only and are subject to change based on creditworthiness, loan term, down payment, and lender discretion.</p>
+    <p>Joyride acts solely as a broker and assumes no liability for a lender's decision to approve, decline, or modify any financing offer.</p>
+  </div>
+
+  <!-- SECTION 12 -->
+  <div class="section" id="s12">
+    <h2><span class="num">12</span> Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, Joyride Financial Inc., Joyride Motorsports, Joyride First Nations, and their respective officers, directors, employees, agents, affiliates, and assigns shall not be liable for any:</p>
+    <ul>
+      <li>Direct, indirect, incidental, consequential, special, or punitive damages arising from your use of our website or services</li>
+      <li>Loss of income, revenue, profit, data, or goodwill</li>
+      <li>Damages arising from a lender's decision to decline, modify, or withdraw a financing offer</li>
+      <li>Errors, omissions, or inaccuracies in third-party lender terms or offers</li>
+      <li>Unauthorized access to or alteration of your personal information due to circumstances beyond our reasonable control</li>
+      <li>Interruptions or unavailability of our website or services</li>
+      <li>Any damages arising from reliance on information provided on our website</li>
+    </ul>
+    <p>In all cases, Joyride's total aggregate liability to you for any claim arising out of or relating to these Terms or our services shall not exceed <strong>CAD $500.00</strong>.</p>
+    <p>Some jurisdictions do not allow the exclusion or limitation of certain damages. In such jurisdictions, our liability is limited to the greatest extent permitted by law.</p>
+  </div>
+
+  <!-- SECTION 13 -->
+  <div class="section" id="s13">
+    <h2><span class="num">13</span> Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Joyride Financial Inc., Joyride Motorsports, Joyride First Nations, and their respective officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or related to:</p>
+    <ul>
+      <li>Your breach of these Terms and Conditions</li>
+      <li>Your provision of false, inaccurate, misleading, or fraudulent information in any application</li>
+      <li>Your violation of any applicable law or regulation</li>
+      <li>Any claim by a third party arising from your use of our services</li>
+      <li>Your infringement of any intellectual property or other rights of any third party</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 14 -->
+  <div class="section" id="s14">
+    <h2><span class="num">14</span> Accuracy of Information</h2>
+    <p>You represent and warrant that all information provided in any application is:</p>
+    <ul>
+      <li>True, accurate, current, and complete to the best of your knowledge</li>
+      <li>Not misleading in any way</li>
+      <li>Provided with the intent to obtain legitimate financing, not to defraud</li>
+    </ul>
+    <p>Providing false or misleading information in a financing application may constitute fraud under the <em>Criminal Code of Canada</em> (R.S.C., 1985, c. C-46) and may result in:</p>
+    <ul>
+      <li>Immediate cancellation of your application</li>
+      <li>Reporting to relevant law enforcement and credit authorities</li>
+      <li>Civil liability for any damages incurred by Joyride or third-party lenders</li>
+      <li>Criminal prosecution</li>
+    </ul>
+    <p>Joyride reserves the right to verify any information provided and to request additional documentation at any time during the application process.</p>
+  </div>
+
+  <!-- SECTION 15 -->
+  <div class="section" id="s15">
+    <h2><span class="num">15</span> Intellectual Property</h2>
+    <p>All content on Joyride's websites and platforms — including but not limited to text, graphics, logos, images, trademarks, trade names, and software — is the exclusive property of Joyride Financial Inc. or its licensors and is protected by Canadian and international intellectual property laws.</p>
+    <p>The Joyride Financial, Joyride Motorsports, and Joyride First Nations names, logos, and marks are trademarks of Joyride Financial Inc. Unauthorized use of any Joyride trademark is strictly prohibited.</p>
+    <p>You may not reproduce, distribute, modify, create derivative works from, publicly display, or otherwise exploit any content from our platforms without prior written permission from Joyride Financial Inc.</p>
+  </div>
+
+  <!-- SECTION 16 -->
+  <div class="section" id="s16">
+    <h2><span class="num">16</span> Data Retention & Deletion</h2>
+    <p>Joyride retains your personal information for as long as necessary to fulfill the purposes for which it was collected, and as required by applicable law. Specifically:</p>
+    <ul>
+      <li><strong>Active applications:</strong> Retained for the duration of the application process and up to 7 years following completion of any financing arrangement, consistent with Alberta's financial record-keeping requirements</li>
+      <li><strong>Declined or incomplete applications:</strong> Retained for up to 2 years for fraud prevention and regulatory compliance purposes</li>
+      <li><strong>Marketing consent records:</strong> Retained for as long as consent is active and for 3 years following withdrawal of consent, as required by CASL</li>
+    </ul>
+    <h3>Right to Deletion</h3>
+    <p>You may request deletion of your personal information by contacting our Privacy Officer. We will process deletion requests within <strong>30 days</strong>, subject to any legal obligations requiring us to retain certain records.</p>
+    <p>Note that we may be unable to delete information that has already been transmitted to and received by third-party lenders, which is governed by their respective privacy policies.</p>
+  </div>
+
+  <!-- SECTION 17 -->
+  <div class="section" id="s17">
+    <h2><span class="num">17</span> Security</h2>
+    <p>Joyride implements reasonable administrative, technical, and physical safeguards to protect your personal information against unauthorized access, use, disclosure, alteration, or destruction, including:</p>
+    <ul>
+      <li>Encrypted data transmission (SSL/TLS)</li>
+      <li>Access controls limiting employee access to personal information on a need-to-know basis</li>
+      <li>Secure CRM and data processing systems with contractual privacy obligations</li>
+    </ul>
+    <p>However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your personal information using commercially reasonable means, <strong>we cannot guarantee absolute security</strong>.</p>
+    <p>In the event of a privacy breach affecting your personal information, Joyride will notify you and the Office of the Privacy Commissioner of Canada as required under PIPEDA's mandatory breach reporting obligations.</p>
+  </div>
+
+  <!-- SECTION 18 -->
+  <div class="section" id="s18">
+    <h2><span class="num">18</span> Third-Party Lenders</h2>
+    <p>Joyride works with a network of third-party lenders. Once your application is submitted to a lender, that lender's own terms, conditions, and privacy policies govern the lending relationship. Joyride has no control over and assumes no responsibility for:</p>
+    <ul>
+      <li>The terms, interest rates, or conditions of any loan offered by a third-party lender</li>
+      <li>A lender's decision to approve, decline, or modify any application</li>
+      <li>The lender's use or storage of your personal information following submission</li>
+      <li>Any fees, penalties, or charges imposed by the lender</li>
+    </ul>
+    <p>You are encouraged to review the terms and privacy policies of any lender before entering into a financing agreement.</p>
+  </div>
+
+  <!-- SECTION 19 -->
+  <div class="section" id="s19">
+    <h2><span class="num">19</span> Governing Law & Jurisdiction</h2>
+    <p>These Terms and Conditions are governed by and construed in accordance with the laws of the <strong>Province of Alberta</strong> and the applicable federal laws of <strong>Canada</strong>, without regard to conflict of law principles.</p>
+    <p>Any dispute arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Alberta, Canada. You irrevocably consent to the personal jurisdiction of such courts.</p>
+    <p>For disputes involving Indigenous applicants through Joyride First Nations, applicable Indigenous legal frameworks and treaty rights are recognized and respected to the extent they apply.</p>
+    <p>Nothing in these Terms limits your rights as a consumer under the <em>Consumer Protection Act</em> (Alberta) or any other applicable consumer protection legislation.</p>
+  </div>
+
+  <!-- SECTION 20 -->
+  <div class="section" id="s20">
+    <h2><span class="num">20</span> Amendments</h2>
+    <p>Joyride reserves the right to modify these Terms and Conditions at any time. Updated Terms will be posted on this page with a revised effective date. Your continued use of our services following any such modification constitutes your acceptance of the updated Terms.</p>
+    <p>For material changes affecting your privacy rights under PIPEDA, we will make reasonable efforts to provide prior notice by email to active applicants.</p>
+  </div>
+
+  <!-- SECTION 21 -->
+  <div class="section" id="s21">
+    <h2><span class="num">21</span> Severability</h2>
+    <p>If any provision of these Terms and Conditions is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, such provision shall be modified to the minimum extent necessary to make it enforceable, or severed from these Terms if modification is not possible. The remaining provisions shall continue in full force and effect.</p>
+    <p>The failure of Joyride to enforce any right or provision of these Terms shall not constitute a waiver of that right or provision.</p>
+  </div>
+
+  <!-- SECTION 22 -->
+  <div class="section" id="s22">
+    <h2><span class="num">22</span> Contact & Privacy Officer</h2>
+    <p>For questions, concerns, or requests regarding these Terms and Conditions or your personal information, please contact:</p>
+    <div class="highlight-box">
+      <p>
+        <strong>Joyride Financial Inc. — Privacy Officer</strong><br/>
+        41 Broadway Blvd #22, Sherwood Park, AB T8H 2C1<br/>
+        Phone: <strong>1-833-980-2277</strong><br/>
+        Email: <strong>privacy@joyridefinancial.ca</strong><br/>
+        Website: <strong>joyridefinancial.ca</strong>
+      </p>
+    </div>
+    <p>You also have the right to file a complaint with the <strong>Office of the Privacy Commissioner of Canada</strong> at <strong>www.priv.gc.ca</strong> or 1-800-282-1376 if you believe your privacy rights have not been respected.</p>
+    <p style="margin-top:32px;font-size:13px;color:var(--off);border-top:1px solid var(--border);padding-top:24px;"><em>These Terms and Conditions were last reviewed and updated on March 21, 2025. Joyride Financial Inc. recommends that users review these Terms periodically. This document is provided for informational purposes and does not constitute legal advice. Joyride Financial Inc. recommends consulting a qualified legal professional for advice specific to your circumstances.</em></p>
+  </div>
+
+</div>
+
+<footer>
+  <a class="logo" href="./"><img src="joyride-logo.png" alt="Joyride Motorsports"/></a>
+  <div class="footer-info">
+    41 Broadway Blvd #22, Sherwood Park, AB T8H 2C1<br/>
+    <a class="footer-phone" href="tel:+18339802277">1-833-980-2277</a> · joyridefinancial.ca<br/>
+    © 2025 Joyride Financial Inc. · Licensed Canadian financing · *OAC
+  </div>
+</footer>
+
+</body>
+</html>
