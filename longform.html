@@ -98,7 +98,13 @@
   .trust-strip-label { font-size: 11px; color: var(--off); text-transform: uppercase; letter-spacing: .07em; text-align: center; }
   .trust-strip-stars { color: #F5C518; font-size: 15px; }
 
-  .reviews-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  .canada-banner { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: var(--black2); border: 1px solid rgba(51,153,204,0.2); border-radius: 12px; padding: 32px 24px; margin-bottom: 28px; }
+  .canada-banner .leaf { font-size: 48px; margin-bottom: 12px; }
+  .canada-banner h3 { font-family: 'Anton', sans-serif; font-style: italic; font-size: clamp(22px, 3vw, 34px); text-transform: uppercase; color: var(--white); letter-spacing: .02em; margin-bottom: 8px; }
+  .canada-banner h3 span { color: var(--blue); }
+  .canada-banner p { font-size: 14px; color: var(--off); max-width: 420px; line-height: 1.6; }
+
+  .reviews-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 28px; }
   .review-card-sm { background: var(--black2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
   .review-card-sm .stars { color: #F5C518; font-size: 13px; margin-bottom: 10px; }
   .review-card-sm p { font-size: 13px; color: var(--off); font-style: italic; line-height: 1.6; margin-bottom: 12px; }
@@ -110,6 +116,7 @@
     .trust-strip-item { border-right: none; border-bottom: 1px solid var(--border); width: 100%; }
     .trust-strip-item:last-child { border-bottom: none; }
     .reviews-strip { grid-template-columns: 1fr; }
+    .canada-banner h3 { font-size: 22px; }
   }
 
   .success-msg { display: none; text-align: center; padding: 60px 20px; }
@@ -167,6 +174,13 @@
     </div>
   </div>
 
+  <!-- CANADA BANNER -->
+  <div class="canada-banner">
+    <div class="leaf">🍁</div>
+    <h3>Your Ride. Delivered <span>Anywhere in Canada.</span></h3>
+    <p>We ship coast to coast. Sign your contract remotely — your new ride comes to you.</p>
+  </div>
+
   <!-- REVIEWS -->
   <div class="reviews-strip">
     <div class="review-card-sm">
@@ -180,6 +194,12 @@
       <p>"Absolutely fantastic guys to work with, finding the best option for financing... the best part is when you call they aren't overseas and you get an actual person."</p>
       <div class="author">Joshua L.</div>
       <div class="location">Local Guide · 95 reviews</div>
+    </div>
+    <div class="review-card-sm">
+      <div class="stars">★★★★★</div>
+      <p>"I can't even comprehend the amount of work that Kaytlyn and Amanda had to do to get me decent financing, all the while they are out West and I am in Ontario. Joyride is very lucky to have these two ladies! My new Outlander arrived right on time and in perfect shape!"</p>
+      <div class="author">Jordan B.</div>
+      <div class="location">Ontario</div>
     </div>
   </div>
 
