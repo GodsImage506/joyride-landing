@@ -130,6 +130,8 @@
   .delay-3 { animation-delay: .35s; opacity: 0; }
   .delay-4 { animation-delay: .5s; opacity: 0; }
   .delay-5 { animation-delay: .65s; opacity: 0; }
+  .scroll-reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
+  .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 90px; }
@@ -205,30 +207,30 @@
   </div>
 </section>
 
-<div class="trust-bar">
+<div class="trust-bar scroll-reveal">
   <div class="trust-item">
     <div class="stars">★★★★☆</div>
-    <div class="trust-val">4.6<span style="font-size:16px;font-weight:400;color:var(--off)">/5</span></div>
+    <div class="trust-val"><span data-target="4.6" data-prefix="">4.6</span><span style="font-size:16px;font-weight:400;color:var(--off)">/5</span></div>
     <div class="trust-label">334 Google Reviews</div>
   </div>
   <div class="trust-item">
     <img src="bbb-logo.png" alt="BBB A+ Rating" class="bbb-img"/>
   </div>
   <div class="trust-item">
-    <div class="trust-val">30+</div>
+    <div class="trust-val"><span data-target="30" data-suffix="+">30+</span></div>
     <div class="trust-label">Canadian lenders</div>
   </div>
   <div class="trust-item">
-    <div class="trust-val">5+</div>
+    <div class="trust-val"><span data-target="5" data-suffix="+">5+</span></div>
     <div class="trust-label">Years in business</div>
   </div>
   <div class="trust-item">
-    <div class="trust-val">$0</div>
+    <div class="trust-val"><span data-target="0" data-prefix="$">$0</span></div>
     <div class="trust-label">Down payment needed</div>
   </div>
 </div>
 
-<section class="form-section" id="apply">
+<section class="form-section scroll-reveal" id="apply">
   <div class="form-left">
     <h2>Get <em>Pre-Approved</em> Today</h2>
     <p>We work with 30+ Canadian lenders to find you the best rate — even if your credit isn't perfect. Open-term financing means you can pay it off early with zero penalties.</p>
@@ -336,7 +338,7 @@
   </div>
 </section>
 
-<section class="reviews-section">
+<section class="reviews-section scroll-reveal">
   <div style="max-width:1200px;margin:0 auto;">
     <div class="google-badge">
       <img src="google-reviews.png" alt="Google Reviews" style="height:80px;width:auto;display:block;"/>
@@ -367,7 +369,7 @@
   </div>
 </section>
 
-<section class="riders-section">
+<section class="riders-section scroll-reveal">
   <div style="max-width:1200px;margin:0 auto;">
     <h2 class="section-heading">Approved <em>Riders</em></h2>
     <p class="section-sub">Join thousands of Canadians who ride through Joyride.</p>
@@ -413,6 +415,45 @@ function handleSubmit(e) {
   btn.style.background = '#1D9E75';
   btn.disabled = true;
 }
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
+
+// Counter animation
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const isDecimal = el.dataset.target.includes('.');
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+  const update = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = target * ease;
+    el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 </script>
 </body>
 </html>
