@@ -1,10 +1,10 @@
-{
-  "name": "joyride-landing",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.0"
-  }
-}
+  {                                                                                                                     
+    "name": "joyride-apply",
+    "dependencies": {                                                                                                   
+      "serve": "^14.2.0"
+    },                                                                                                                  
+    "scripts": {  
+      "start": "serve . -p $PORT"                                                                                       
+    }                                                                                                                   
+  }                                                                                                                     
+            
