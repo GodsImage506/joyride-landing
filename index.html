@@ -19,8 +19,9 @@
   body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 60px; }
-  .logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: .04em; color: var(--white); text-decoration: none; }
-  .logo-dot { color: var(--orange); }
+  .logo { display: flex; align-items: center; text-decoration: none; }
+  .logo img { height: 40px; width: auto; display: block; }
+  footer .logo img { height: 36px; }
   .nav-cta { background: var(--orange); color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 13px; padding: 8px 20px; border-radius: var(--radius); text-decoration: none; transition: opacity .2s; }
   .nav-cta:hover { opacity: .85; }
 
@@ -143,16 +144,24 @@
     .riders-grid { grid-template-columns: 1fr; }
     .rider-photo:first-child { grid-column: span 1; }
     .social-section { flex-direction: column; align-items: flex-start; }
+    .social-links { flex-direction: column; width: 100%; }
+    .social-link { justify-content: center; }
     .form-card { padding: 24px 20px; }
-    footer { flex-direction: column; }
-    .footer-info { text-align: left; }
+    footer { flex-direction: column; align-items: center; text-align: center; }
+    .footer-info { text-align: center; }
+    .hero-specs { flex-wrap: wrap; gap: 20px; }
+    .spec-item { min-width: 80px; }
+    nav { padding: 0 4%; }
+    .nav-cta { font-size: 12px; padding: 7px 14px; }
+    .logo img { height: 32px; }
+    .trust-bar { padding: 16px 4%; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="logo" href="#">JOYRIDE<span class="logo-dot">.</span>MOTORSPORTS</a>
+  <a class="logo" href="#"><img src="joyride-logo.png" alt="Joyride Motorsports"/></a>
   <a class="nav-cta" href="#apply">Get Pre-Approved →</a>
 </nav>
 
@@ -405,17 +414,17 @@
     <p>Approved riders, new inventory, and promos on our socials.</p>
   </div>
   <div class="social-links">
-    <a class="social-link" href="https://facebook.com/joyridemotorsports" target="_blank">
+    <a class="social-link" href="https://www.facebook.com/JoyrideFinancial/" target="_blank">
       <span class="social-icon">📘</span> Facebook
     </a>
-    <a class="social-link" href="https://instagram.com/joyridemotorsports" target="_blank">
+    <a class="social-link" href="https://www.instagram.com/joyridemotorsports.ca" target="_blank">
       <span class="social-icon">📷</span> Instagram
     </a>
   </div>
 </section>
 
 <footer>
-  <a class="logo" href="#">JOYRIDE<span class="logo-dot">.</span>MOTORSPORTS</a>
+  <a class="logo" href="#"><img src="joyride-logo.png" alt="Joyride Motorsports"/></a>
   <div class="footer-info">
     41 Broadway Blvd #22, Sherwood Park, AB T8H 2C1<br/>
     <a class="footer-phone" href="tel:+18339802277">1-833-980-2277</a> · joyridefinancial.ca<br/>
