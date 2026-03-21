@@ -69,6 +69,23 @@
   .submit-btn:hover { opacity: .9; transform: translateY(-1px); }
   .submit-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
 
+  .riders-section { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); }
+  .riders-heading { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(32px, 4vw, 48px); text-transform: uppercase; margin-bottom: 8px; }
+  .riders-heading em { color: var(--blue); font-style: italic; }
+  .riders-sub { color: var(--off); font-size: 15px; margin-bottom: 32px; }
+  .riders-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .rider-photo { background: var(--black3); border: 1px solid var(--border); border-radius: 8px; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative; overflow: hidden; background-size: cover; background-position: center; }
+  .rider-photo:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 280px; }
+  .rider-photo-icon { font-size: 36px; opacity: .15; }
+  .rider-photo-label { font-size: 11px; color: var(--off); opacity: .5; }
+  .rider-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.75)); padding: 16px 14px 12px; }
+  .rider-name { font-size: 13px; font-weight: 500; color: var(--white); }
+  .rider-province { font-size: 11px; color: var(--off); }
+  @media (max-width: 600px) {
+    .riders-grid { grid-template-columns: 1fr 1fr; }
+    .rider-photo:first-child { grid-column: span 2; }
+  }
+
   .form-disclaimer { font-size: 11px; color: var(--off); text-align: center; margin-top: 14px; line-height: 1.5; }
 
   .no-hit-badge { display: flex; align-items: center; gap: 6px; background: rgba(29,158,117,0.1); border: 1px solid rgba(29,158,117,0.25); color: #1D9E75; font-size: 12px; font-weight: 500; padding: 10px 16px; border-radius: 4px; margin-bottom: 28px; }
@@ -406,6 +423,48 @@
     </div>
     <button type="submit" class="submit-btn">Submit My Application →</button>
     <p class="form-disclaimer">Licensed Canadian financing · Sherwood Park, AB · *OAC — on approved credit</p>
+
+    <!-- APPROVED RIDERS -->
+    <div class="riders-section">
+      <h2 class="riders-heading">Approved <em>Riders</em></h2>
+      <p class="riders-sub">Join thousands of Canadians who ride through Joyride.</p>
+      <div class="riders-grid">
+        <div class="rider-photo" style="background-image:url('austin.jpg');background-size:cover;background-position:center;">
+          <div class="rider-overlay">
+            <div class="rider-name">Austin</div>
+            <div class="rider-province">Red Deer, Alberta</div>
+          </div>
+        </div>
+        <div class="rider-photo" style="background-image:url('brad.jpg');background-size:cover;background-position:center;">
+          <div class="rider-overlay">
+            <div class="rider-name">Brad</div>
+            <div class="rider-province">Edmonton, Alberta</div>
+          </div>
+        </div>
+        <div class="rider-photo">
+          <div class="rider-photo-icon">📸</div>
+          <div class="rider-overlay">
+            <div class="rider-name">Approved Rider</div>
+            <div class="rider-province">Coming Soon</div>
+          </div>
+        </div>
+        <div class="rider-photo">
+          <div class="rider-photo-icon">📸</div>
+          <div class="rider-overlay">
+            <div class="rider-name">Approved Rider</div>
+            <div class="rider-province">Coming Soon</div>
+          </div>
+        </div>
+        <div class="rider-photo">
+          <div class="rider-photo-icon">📸</div>
+          <div class="rider-overlay">
+            <div class="rider-name">Approved Rider</div>
+            <div class="rider-province">Coming Soon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </form>
 
   <div class="success-msg" id="successMsg">
