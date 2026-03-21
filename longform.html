@@ -74,6 +74,27 @@
   .no-hit-badge { display: flex; align-items: center; gap: 6px; background: rgba(29,158,117,0.1); border: 1px solid rgba(29,158,117,0.25); color: #1D9E75; font-size: 12px; font-weight: 500; padding: 10px 16px; border-radius: 4px; margin-bottom: 28px; }
   .no-hit-badge::before { content: '✓'; font-weight: 700; }
 
+  .trust-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0; background: var(--black2); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 28px; overflow: hidden; }
+  .trust-strip-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 20px 28px; border-right: 1px solid var(--border); flex: 1; min-width: 120px; }
+  .trust-strip-item:last-child { border-right: none; }
+  .trust-strip-val { font-family: 'Anton', sans-serif; font-size: 26px; color: var(--white); line-height: 1; }
+  .trust-strip-label { font-size: 11px; color: var(--off); text-transform: uppercase; letter-spacing: .07em; text-align: center; }
+  .trust-strip-stars { color: #F5C518; font-size: 15px; }
+
+  .reviews-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  .review-card-sm { background: var(--black2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .review-card-sm .stars { color: #F5C518; font-size: 13px; margin-bottom: 10px; }
+  .review-card-sm p { font-size: 13px; color: var(--off); font-style: italic; line-height: 1.6; margin-bottom: 12px; }
+  .review-card-sm .author { font-size: 13px; font-weight: 500; color: var(--white); }
+  .review-card-sm .location { font-size: 11px; color: var(--off); }
+
+  @media (max-width: 600px) {
+    .trust-strip { flex-direction: column; }
+    .trust-strip-item { border-right: none; border-bottom: 1px solid var(--border); width: 100%; }
+    .trust-strip-item:last-child { border-bottom: none; }
+    .reviews-strip { grid-template-columns: 1fr; }
+  }
+
   .success-msg { display: none; text-align: center; padding: 60px 20px; }
   .success-msg h2 { font-family: 'Anton', sans-serif; font-size: 42px; text-transform: uppercase; color: #1D9E75; margin-bottom: 12px; }
   .success-msg p { color: var(--off); font-size: 16px; }
@@ -107,6 +128,43 @@
 </div>
 
 <div class="form-wrapper">
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-strip-item">
+      <div class="trust-strip-stars">★★★★☆</div>
+      <div class="trust-strip-val">4.6<span style="font-size:14px;font-weight:400;color:var(--off)">/5</span></div>
+      <div class="trust-strip-label">334 Google Reviews</div>
+    </div>
+    <div class="trust-strip-item">
+      <img src="bbb-logo.png" alt="BBB A+ Rating" style="height:44px;width:auto;display:block;"/>
+    </div>
+    <div class="trust-strip-item">
+      <div class="trust-strip-val">30+</div>
+      <div class="trust-strip-label">Canadian Lenders</div>
+    </div>
+    <div class="trust-strip-item">
+      <div class="trust-strip-val">$0</div>
+      <div class="trust-strip-label">Down Payment Needed</div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="reviews-strip">
+    <div class="review-card-sm">
+      <div class="stars">★★★★★</div>
+      <p>"I have terrible credit (410) and no cosigner. About 3 weeks of dealing with seller and bank, day and night he worked his rear off and got me approved for over $25k and got me the bike I only dreamed about ever owning."</p>
+      <div class="author">Gunner</div>
+      <div class="location">Verified Customer</div>
+    </div>
+    <div class="review-card-sm">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely fantastic guys to work with, finding the best option for financing... the best part is when you call they aren't overseas and you get an actual person."</p>
+      <div class="author">Joshua L.</div>
+      <div class="location">Local Guide · 95 reviews</div>
+    </div>
+  </div>
+
   <div class="no-hit-badge">Soft credit check only — no impact to your credit score</div>
 
   <form id="longform" onsubmit="handleSubmit(event)">
@@ -340,6 +398,11 @@
       </div>
     </div>
 
+    <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin:24px 0 16px;padding:20px;background:var(--black2);border:1px solid var(--border);border-radius:10px;">
+      <img src="google-reviews.png" alt="Google Reviews" style="height:48px;width:auto;"/>
+      <img src="bbb-logo.png" alt="BBB A+ Rating" style="height:44px;width:auto;"/>
+      <span style="font-size:13px;color:var(--off);text-align:center;">Your information is secure &amp; never shared without consent.</span>
+    </div>
     <button type="submit" class="submit-btn">Submit My Application →</button>
     <p class="form-disclaimer">Licensed Canadian financing · Sherwood Park, AB · *OAC — on approved credit</p>
   </form>
