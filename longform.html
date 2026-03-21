@@ -245,7 +245,7 @@
       <div class="section-title">Address</div>
       <div class="form-group">
         <label>Street Address</label>
-        <input type="text" name="address" placeholder="123 Main St"/>
+        <input type="text" name="address" id="address-input" placeholder="Start typing your address…" autocomplete="off"/>
       </div>
       <div class="form-row">
         <div class="form-group">
@@ -517,6 +517,42 @@ async function handleSubmit(e) {
   document.getElementById('longform').style.display = 'none';
   document.getElementById('successMsg').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqE3zgUmO3GuQHoZFVSR59oq_xSjLZfaA&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+function initAutocomplete() {
+  const input = document.getElementById('address-input');
+  const autocomplete = new google.maps.places.Autocomplete(input, {
+    types: ['address'],
+    componentRestrictions: { country: 'ca' }
+  });
+
+  autocomplete.addListener('place_changed', function() {
+    const place = autocomplete.getPlace();
+    if (!place.address_components) return;
+
+    let streetNumber = '', streetName = '', city = '', province = '', postalCode = '';
+
+    place.address_components.forEach(component => {
+      const types = component.types;
+      if (types.includes('street_number'))            streetNumber = component.long_name;
+      if (types.includes('route'))                    streetName   = component.long_name;
+      if (types.includes('locality'))                 city         = component.long_name;
+      if (types.includes('administrative_area_level_1')) province  = component.long_name;
+      if (types.includes('postal_code'))              postalCode   = component.long_name;
+    });
+
+    input.value = streetNumber ? `${streetNumber} ${streetName}` : streetName;
+    document.querySelector('[name="city"]').value       = city;
+    document.querySelector('[name="postalCode"]').value = postalCode;
+
+    // Set province dropdown
+    const provinceSelect = document.querySelector('[name="province"]');
+    for (let opt of provinceSelect.options) {
+      if (opt.text === province) { provinceSelect.value = opt.value; break; }
+    }
+  });
 }
 </script>
 </body>
