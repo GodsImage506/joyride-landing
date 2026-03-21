@@ -97,6 +97,9 @@
   .trust-strip-val { font-family: 'Anton', sans-serif; font-size: 26px; color: var(--white); line-height: 1; }
   .trust-strip-label { font-size: 11px; color: var(--off); text-transform: uppercase; letter-spacing: .07em; text-align: center; }
   .trust-strip-stars { color: #F5C518; font-size: 15px; }
+  .star-rating { position: relative; display: inline-block; font-size: 18px; letter-spacing: 2px; line-height: 1; }
+  .star-rating .stars-empty { color: #444; }
+  .star-rating .stars-filled { position: absolute; top: 0; left: 0; overflow: hidden; white-space: nowrap; color: #F5C518; width: 92%; }
 
   .canada-banner { display: flex; align-items: center; justify-content: center; gap: 16px; text-align: center; background: var(--black2); border: 1px solid rgba(51,153,204,0.2); border-radius: 10px; padding: 16px 24px; margin-bottom: 20px; flex-wrap: wrap; }
   .canada-banner .leaf { font-size: 28px; flex-shrink: 0; }
@@ -162,7 +165,7 @@
   <!-- TRUST STRIP -->
   <div class="trust-strip">
     <div class="trust-strip-item">
-      <div class="trust-strip-stars">★★★★☆</div>
+      <div class="star-rating"><span class="stars-empty">★★★★★</span><span class="stars-filled">★★★★★</span></div>
       <div class="trust-strip-val">4.6<span style="font-size:14px;font-weight:400;color:var(--off)">/5</span></div>
       <div class="trust-strip-label">334 Google Reviews</div>
     </div>
