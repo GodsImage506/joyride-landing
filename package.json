@@ -1,10 +1,9 @@
-  {                                                                                                                     
-    "name": "joyride-apply",
-    "dependencies": {                                                                                                   
-      "serve": "^14.2.0"
-    },                                                                                                                  
-    "scripts": {  
-      "start": "serve . -p $PORT"                                                                                       
-    }                                                                                                                   
-  }                                                                                                                     
-            
+{
+  "name": "joyride-apply",
+  "dependencies": {
+    "express": "^4.18.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
