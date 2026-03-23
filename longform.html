@@ -61,6 +61,15 @@
   .scroll-hint::before { content: '←'; color: var(--blue); }
   .scroll-hint::after { content: '→'; color: var(--blue); }
 
+  .riders-section { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); }
+  .riders-heading { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(32px, 4vw, 48px); text-transform: uppercase; margin-bottom: 8px; text-align: center; }
+  .riders-heading em { color: var(--blue); font-style: italic; }
+  .riders-sub { color: var(--off); font-size: 15px; margin-bottom: 32px; text-align: center; }
+  .riders-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .rider-photo { background: var(--black3); border-radius: 8px; aspect-ratio: 4/3; position: relative; overflow: hidden; background-size: cover; background-position: center; }
+  .rider-photo:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 280px; }
+  @media (max-width: 600px) { .riders-grid { grid-template-columns: 1fr 1fr; } .rider-photo:first-child { grid-column: span 2; } }
+
   footer { padding: 32px 5%; border-top: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
   footer .logo img { height: 180px; }
   .footer-info { font-size: 12px; color: var(--off); line-height: 1.8; text-align: right; }
@@ -208,6 +217,19 @@
     title="New Credit Application "
   ></iframe>
   <script src="https://start.myjoyride.co/js/form_embed.js"></script>
+
+  <!-- APPROVED RIDERS -->
+  <div class="riders-section">
+    <h2 class="riders-heading">Approved <em>Riders</em></h2>
+    <p class="riders-sub">Join thousands of Canadians who ride through Joyride.</p>
+    <div class="riders-grid">
+      <div class="rider-photo" style="background-image:url('austin.jpg');background-size:cover;background-position:center;"></div>
+      <div class="rider-photo" style="background-image:url('brad.jpg');background-size:cover;background-position:center;"></div>
+      <div class="rider-photo" style="background-image:url('rider3.webp');background-size:cover;background-position:center;"></div>
+      <div class="rider-photo" style="background-image:url('rider4.webp');background-size:cover;background-position:center;"></div>
+      <div class="rider-photo" style="background-image:url('rider5.webp');background-size:cover;background-position:center;"></div>
+    </div>
+  </div>
 
 </div>
 
