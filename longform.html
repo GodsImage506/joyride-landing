@@ -4,7 +4,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Full Application — Joyride Motorsports</title>
+<title>Get Pre-Approved | Joyride Motorsports</title>
+<meta name="description" content="Apply for powersports financing in minutes. Joyride Motorsports works with 30+ Canadian lenders — bad credit welcome, soft check only, delivered anywhere in Canada."/>
+<meta property="og:title" content="Get Pre-Approved | Joyride Motorsports"/>
+<meta property="og:description" content="Apply for powersports financing in minutes. 30+ Canadian lenders, soft credit check only, $0 down available. Delivered anywhere in Canada."/>
+<meta property="og:image" content="https://joyride-landing-production.up.railway.app/joyride-logo.png"/>
+<meta property="og:url" content="https://joyride.now/longform.html"/>
+<meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
@@ -69,6 +75,18 @@
   .rider-photo { background: var(--black3); border-radius: 8px; aspect-ratio: 4/3; position: relative; overflow: hidden; background-size: cover; background-position: center; }
   .rider-photo:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 280px; }
   @media (max-width: 600px) { .riders-grid { grid-template-columns: 1fr 1fr; } .rider-photo:first-child { grid-column: span 2; } }
+
+  .good-hands { text-align: center; margin-bottom: 20px; font-size: 14px; color: var(--off); line-height: 1.6; }
+  .good-hands strong { color: var(--white); }
+  .prefer-talk { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 28px; font-size: 14px; color: var(--off); }
+  .prefer-talk a { color: var(--blue); font-weight: 500; text-decoration: none; }
+  .prefer-talk a:hover { text-decoration: underline; }
+
+  .sticky-apply { display: none; }
+  @media (max-width: 700px) {
+    .sticky-apply { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--black); border-top: 1px solid var(--border); padding: 12px 20px; }
+    .sticky-apply a { display: block; width: 100%; background: var(--blue); color: #fff; text-align: center; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 16px; padding: 14px; border-radius: var(--radius); text-decoration: none; }
+  }
 
   footer { padding: 32px 5%; border-top: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
   footer .logo img { height: 180px; }
@@ -198,6 +216,9 @@
 
   <div class="no-hit-badge">Soft credit check only — no impact to your credit score</div>
 
+  <p class="good-hands"><strong>You're in good hands.</strong> We work with 30+ Canadian lenders to find you the best rate — even with bruised or no credit.</p>
+  <p class="prefer-talk">Prefer to talk? Call us at <a href="tel:+15874047586">(587) 404-7586</a></p>
+
   <!-- GHL FORM EMBED -->
   <iframe
     src="https://start.myjoyride.co/widget/form/ykfgEa6aa2l24rNh12KU"
@@ -241,6 +262,10 @@
     © 2025 Joyride Financial Inc. · Licensed Canadian financing · *OAC
   </div>
 </footer>
+
+<div class="sticky-apply">
+  <a href="#inline-ykfgEa6aa2l24rNh12KU">Apply Now →</a>
+</div>
 
 </body>
 </html>
