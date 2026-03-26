@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const https = require('https');
 const app = express();
 
 const REP_URLS = {
@@ -25,10 +24,10 @@ const REP_URLS = {
   'amanda':   'https://consumer.autocorp.ai/w/c605331e678b/credit?assignee=amanda%40joyridefinancial.ca',
 };
 
-// Shell page — no AVA URL exposed
 app.get('/apply/:rep', (req, res) => {
   const rep = req.params.rep.toLowerCase();
-  if (!REP_URLS[rep]) return res.status(404).send('Not found');
+  const url = REP_URLS[rep];
+  if (!url) return res.status(404).send('Not found');
   res.send(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,26 +41,9 @@ app.get('/apply/:rep', (req, res) => {
 </style>
 </head>
 <body>
-<iframe src="/apply/${rep}/frame" scrolling="yes" allowfullscreen></iframe>
+<iframe src="${url}" scrolling="yes" allowfullscreen></iframe>
 </body>
 </html>`);
-});
-
-// Proxy endpoint — fetches AVA page server-side, AVA URL never reaches the browser
-app.get('/apply/:rep/frame', (req, res) => {
-  const rep = req.params.rep.toLowerCase();
-  const url = REP_URLS[rep];
-  if (!url) return res.status(404).send('Not found');
-
-  https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (upstream) => {
-    res.status(upstream.statusCode);
-    // Strip headers that would block rendering inside our proxy response
-    const skip = new Set(['x-frame-options', 'content-security-policy', 'transfer-encoding']);
-    for (const [k, v] of Object.entries(upstream.headers)) {
-      if (!skip.has(k.toLowerCase())) res.setHeader(k, v);
-    }
-    upstream.pipe(res);
-  }).on('error', () => res.status(502).send('Upstream error'));
 });
 
 app.get('/', (req, res) => {
