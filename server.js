@@ -2,32 +2,47 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const REP_URLS = {
-  'tyler':    'https://consumer.autocorp.ai/w/a302cb787550/credit/?assignee=tyler@joyridefinancial.ca',
-  'travis':   'https://consumer.autocorp.ai/w/ca4b0aed7ad7/credit/?assignee=travis@joyridefinancial.ca',
-  'taylor':   'https://consumer.autocorp.ai/w/589b85d0b5b5/credit/?assignee=taylor@joyridefinancial.ca',
-  'taylor-m': 'https://consumer.autocorp.ai/w/6db182752f61/credit/?assignee=taylorm@joyridefinancial.ca',
-  'summer':   'https://consumer.autocorp.ai/w/331a5029bd97/credit/?assignee=summer@joyridefinancial.ca',
-  'rome':     'https://consumer.autocorp.ai/w/b7c10ff987fe/credit/?assignee=rome@joyridefinancial.ca',
-  'roman':    'https://consumer.autocorp.ai/w/b2fc58b66bf3/credit/?assignee=roman@joyridefinancial.ca',
-  'kelly':    'https://consumer.autocorp.ai/w/be5bea931b17/credit/?assignee=kelly@joyridefinancial.ca',
-  'kaytlyn':  'https://consumer.autocorp.ai/w/0e04e893e8e4/credit/?assignee=kaytlyn@joyridefinancial.ca',
-  'jordan':   'https://consumer.autocorp.ai/w/9f6fa55951f1/credit/?assignee=jordan@joyridefinancial.ca',
-  'jeremy':   'https://consumer.autocorp.ai/w/2b294b48e1c1/credit/?assignee=jeremy@joyridefinancial.ca',
-  'jacob':    'https://consumer.autocorp.ai/w/d5e47376b471/credit/?assignee=jacob@joyridefinancial.ca',
-  'graham':   'https://consumer.autocorp.ai/w/e6eebbdb78d2/credit/?assignee=graham@joyridefinancial.ca',
-  'dessa':    'https://consumer.autocorp.ai/w/de31ed8c9272/credit/?assignee=dessa@joyridefinancial.ca',
-  'dave':     'https://consumer.autocorp.ai/w/0da19b994648/credit/?assignee=dave@joyridefinancial.ca',
-  'channing': 'https://consumer.autocorp.ai/w/73108f36fddb/credit/?assignee=channing@joyridefinancial.ca',
-  'brooke':   'https://consumer.autocorp.ai/w/b34621e80f8a/credit/?assignee=brooke@joyridefinancial.ca',
-  'amanda-k': 'https://consumer.autocorp.ai/w/a20a352fb6bc/credit/?assignee=amanda.k@joyridefinancial.ca',
-  'amanda':   'https://consumer.autocorp.ai/w/c605331e678b/credit/?assignee=amanda@joyridefinancial.ca',
+const REP_WIDGETS = {
+  'tyler':    'a302cb787550',
+  'travis':   'ca4b0aed7ad7',
+  'taylor':   '589b85d0b5b5',
+  'taylor-m': '6db182752f61',
+  'summer':   '331a5029bd97',
+  'rome':     'b7c10ff987fe',
+  'roman':    'b2fc58b66bf3',
+  'kelly':    'be5bea931b17',
+  'kaytlyn':  '0e04e893e8e4',
+  'jordan':   '9f6fa55951f1',
+  'jeremy':   '2b294b48e1c1',
+  'jacob':    'd5e47376b471',
+  'graham':   'e6eebbdb78d2',
+  'dessa':    'de31ed8c9272',
+  'dave':     '0da19b994648',
+  'channing': '73108f36fddb',
+  'brooke':   'b34621e80f8a',
+  'amanda-k': 'a20a352fb6bc',
+  'amanda':   'c605331e678b',
 };
 
 app.get('/apply/:rep', (req, res) => {
-  const url = REP_URLS[req.params.rep];
-  if (!url) return res.status(404).send('Not found');
-  res.set('Location', url).set('Referrer-Policy', 'no-referrer').status(302).end();
+  const widgetId = REP_WIDGETS[req.params.rep];
+  if (!widgetId) return res.status(404).send('Not found');
+  res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Now</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:auto;background:#fff}
+</style>
+<script src="https://assets.askava.ai/v2/api.js?widgetId=${widgetId}&features=modal,customCta" async defer></script>
+</head>
+<body>
+<div class="AskAva-embed" data-product="creditTool"></div>
+</body>
+</html>`);
 });
 
 app.get('/', (req, res) => {
