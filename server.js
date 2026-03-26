@@ -27,7 +27,7 @@ const REP_URLS = {
 app.get('/apply/:rep', (req, res) => {
   const url = REP_URLS[req.params.rep];
   if (!url) return res.status(404).send('Not found');
-  res.set('Location', url).status(302).end();
+  res.set('Location', url).set('Referrer-Policy', 'no-referrer').status(302).end();
 });
 
 app.get('/', (req, res) => {
