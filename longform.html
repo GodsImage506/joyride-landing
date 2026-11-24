@@ -277,6 +277,14 @@
       } catch (e) {}
     }
     send({ c: c, e: 'click' });
+    // A link preview can load this page with nobody there; a touch, scroll or key press is a person.
+    var engaged = false;
+    function onEngage() {
+      if (engaged) return; engaged = true;
+      send({ c: c, e: 'engaged' });
+      ['touchstart', 'pointerdown', 'keydown', 'scroll'].forEach(function (t) { window.removeEventListener(t, onEngage, true); });
+    }
+    ['touchstart', 'pointerdown', 'keydown', 'scroll'].forEach(function (t) { window.addEventListener(t, onEngage, { capture: true, passive: true }); });
     var sent = false;
     window.addEventListener('message', function (e) {
       if (sent || e.origin !== 'https://start.myjoyride.co' || !Array.isArray(e.data) || e.data[0] !== 'set-sticky-contacts') return;
