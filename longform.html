@@ -260,5 +260,40 @@
   </div>
 </footer>
 
+  <!-- Per-lead link code (Nov 24 2026): Rick's link is joyride.now/?c=<code>. Tell Pathara the page
+       was opened and, when the application is submitted, which lead it was. No code = nothing sent. -->
+  <script>
+  (function () {
+    var API = 'https://patharaai-production.up.railway.app/t/l';
+    var c = '';
+    try { c = (new URLSearchParams(location.search).get('c') || '').toLowerCase(); } catch (e) {}
+    try { if (/^[0-9a-f]{8}$/.test(c)) sessionStorage.setItem('jr_c', c); else c = sessionStorage.getItem('jr_c') || ''; } catch (e) {}
+    if (!/^[0-9a-f]{8}$/.test(c)) return;
+    function send(o) {
+      try {
+        var b = JSON.stringify(o);
+        if (navigator.sendBeacon) navigator.sendBeacon(API, new Blob([b], { type: 'text/plain' }));
+        else fetch(API, { method: 'POST', body: b, keepalive: true, mode: 'no-cors' });
+      } catch (e) {}
+    }
+    send({ c: c, e: 'click' });
+    var sent = false;
+    window.addEventListener('message', function (e) {
+      if (sent || e.origin !== 'https://start.myjoyride.co' || !Array.isArray(e.data) || e.data[0] !== 'set-sticky-contacts') return;
+      var raw = e.data.map(function (x) {
+        var p = typeof x === 'string' ? x : JSON.stringify(x || '');
+        var out = p;
+        try { out += ' ' + decodeURIComponent(p); } catch (err) {}
+        try { if (p.length >= 16) out += ' ' + atob(p); } catch (err) {}
+        return out;
+      }).join(' ');
+      var email = (raw.match(/[\w.+-]{1,64}@[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}/i) || [])[0];
+      var phone = (raw.match(/(?:\+?1[\s.-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/) || [])[0];
+      if (!email && !phone) return;
+      sent = true;
+      send({ c: c, e: 'applied', phone: phone, email: email });
+    });
+  })();
+  </script>
 </body>
 </html>
